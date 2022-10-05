@@ -36,13 +36,21 @@ public class FormTest {
     }
 
 
+    //@BeforeEach
+    //void setUp() {
+        //driver = new ChromeDriver();
+        //ChromeOptions options = new ChromeOptions();
+        //options.addArguments("--disable-dev-shm-usage");
+        //options.addArguments("--no-sandbox");
+        //options.addArguments("--headless");
+        //driver = new ChromeDriver(options);
+    //}
+
     @BeforeEach
-    void setUp() {
-        driver = new ChromeDriver();
+    void setUp(){
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
+        options.setHeadless(true);
+
         driver = new ChromeDriver(options);
     }
 
