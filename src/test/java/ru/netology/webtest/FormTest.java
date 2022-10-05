@@ -1,6 +1,6 @@
 package ru.netology.webtest;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+//import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,15 +16,25 @@ public class FormTest {
 
     private WebDriver driver;
 
-    @BeforeAll
-    static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
-    }
+    //@BeforeAll
+    //static void setUpAll() {
+        //System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
+    //}
+
+    //@BeforeAll
+    //static void setupAll() {
+        //WebDriverManager.chromedriver().setup();
+    //}
 
     @BeforeAll
-    static void setupAll() {
-        WebDriverManager.chromedriver().setup();
+    static void setUpAll(){
+        if (System.getProperty("os.name").contains("Linux")) {
+            System.setProperty("webdriver.chrome.driver", "driver/linux/chromedriver");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
+        }
     }
+
 
     @BeforeEach
     void setUp() {
@@ -44,7 +54,7 @@ public class FormTest {
 
     @Test
     public void ShouldValidTest() {
-        driver.get("http://localhost:7777");
+        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Смирнова Юлия");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79876543210");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
