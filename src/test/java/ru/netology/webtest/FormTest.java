@@ -54,7 +54,7 @@ public class FormTest {
 
     @Test
     public void ShouldValidTest() {
-        driver.get("http://localhost:9999");
+        driver.get("http://127.0.0.1:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Смирнова Юлия");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79876543210");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
