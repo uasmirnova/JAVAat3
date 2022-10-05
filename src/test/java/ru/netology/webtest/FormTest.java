@@ -16,10 +16,10 @@ public class FormTest {
 
     private WebDriver driver;
 
-    //@BeforeAll
-    //static void setUpAll() {
-       // System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
-    //}
+    @BeforeAll
+    static void setUpAll() {
+        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
+    }
 
     @BeforeAll
     static void setupAll() {
@@ -44,7 +44,7 @@ public class FormTest {
 
     @Test
     public void ShouldValidTest() {
-        driver.get("http://localhost:9999");
+        driver.get("http://localhost:7777");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Смирнова Юлия");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79876543210");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
